@@ -56,20 +56,8 @@ const Menu = styled.div`
 `;
 
 export const Header = () => {
-  const [navColor, setnavColor] = useState("transparent");
-
-  const ListenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
-    useEffect(() => {
-      window.addEventListener("scroll", ListenScrollEvent);
-      return () => {
-        window.removeEventListener("scroll", ListenScrollEvent);
-      };
-    }, []);
-  };
-
   return (
-    <Container $BgColor={navColor}>
+    <Container>
       <Logo>
         <Link to={routes.home}>MINFLIX</Link>
       </Logo>

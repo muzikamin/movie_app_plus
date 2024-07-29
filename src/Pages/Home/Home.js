@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { nowPlaying, popular, topRated, upComing } from "../../api";
 import { Loading } from "../../Components/Loading";
 import styled from "styled-components";
-import { imgUrl } from "../../Constant/imgUrl";
-import { Padding } from "../../GlobalStyled";
 import "swiper/css";
 import { MainBanner } from "./Components/MainBanner";
+import { Movies } from "./Components/Movies";
+import { MoviesRank } from "./Components/MoviesRank";
+
+const Container = styled.div`
+  width: 100%;
+`;
 
 export const Home = () => {
   const [nowData, SetNowDate] = useState();
@@ -38,5 +42,20 @@ export const Home = () => {
   console.log(topData);
   console.log(upData);
 
-  return <>{isLoading ? <Loading /> : <MainBanner data={popData} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          <MainBanner data={popData} />
+
+          <MoviesRank title="오늘의 TOP시리즈" movieData={popData} />
+          <Movies title="상영 중 영화" movieData={nowData} />
+          <MoviesRank title="최고의 평점" movieData={topData} />
+          <Movies title="개봉예정작" movieData={upData} />
+        </Container>
+      )}
+    </>
+  );
 };

@@ -21,14 +21,23 @@ const Section = styled.div`
   }
 `;
 
-const MovieTitle = styled.h3`
-  font-size: 20px;
-  line-height: 26px;
-  margin-left: 10px;
+const Index = styled.h3`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 13vw;
+  -webkit-text-stroke: 2px #fff;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: -15px;
+
+  @media screen and (max-width: 860px) {
+    font-size: 15vw;
+  }
 
   @media screen and (max-width: 680px) {
-    font-size: 16px;
-    line-height: 23px;
+    -webkit-text-stroke: 1px #fff;
   }
 `;
 
@@ -88,7 +97,7 @@ const params = {
   },
 };
 
-export const Movies = ({ title, movieData }) => {
+export const MoviesRank = ({ title, movieData }) => {
   return (
     <Section>
       <Title>{title}</Title>
@@ -97,13 +106,13 @@ export const Movies = ({ title, movieData }) => {
         {movieData.map((data, index) => (
           <SwiperSlide key={data.id} virtualIndex={index}>
             <Link to={`detail/${data.id}`}>
+              <Index>{index + 1}</Index>
               <ImgWrap>
                 <img
                   src={`${imgUrl.w500Url}${data.poster_path}`}
                   alt={data.title}
                 />
               </ImgWrap>
-              <MovieTitle>{data.title}</MovieTitle>
             </Link>
           </SwiperSlide>
         ))}

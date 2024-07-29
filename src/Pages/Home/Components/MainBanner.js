@@ -18,7 +18,7 @@ const SwiperStyle = styled.div`
 
 const SMainBanner = styled.section`
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   position: relative;
   background: url(${imgUrl.BaseUrl}${(props) => props.$BgUrl}) no-repeat center /
     cover;
@@ -27,6 +27,16 @@ const SMainBanner = styled.section`
     font-size: 45px;
     font-weight: 900;
     margin-bottom: 20px;
+    line-height: 55px;
+
+    @media screen and (max-width: 1280px) {
+      font-size: 36px;
+    }
+
+    @media screen and (max-width: 680px) {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
   }
   p {
     width: 40%;
@@ -34,6 +44,17 @@ const SMainBanner = styled.section`
     line-height: 30px;
     opacity: 0.7;
     font-weight: 200;
+
+    @media screen and (max-width: 1280px) {
+      width: 60%;
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    @media screen and (max-width: 680px) {
+      left: ${Padding.MosidePadding};
+      width: 80%;
+    }
   }
 `;
 
@@ -42,6 +63,10 @@ const Text = styled.div`
   position: absolute;
   left: ${Padding.sidePadding};
   bottom: 60px;
+
+  @media screen and (max-width: 1280px) {
+    left: ${Padding.MosidePadding};
+  }
 `;
 
 const BlackBg = styled.div`
@@ -95,6 +120,24 @@ export const MainBanner = ({ data }) => {
             <Text>
               <h3>{data[2].title}</h3>
               <p>{data[2].overview.slice(0, 120) + "..."}</p>
+            </Text>
+          </SMainBanner>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SMainBanner $BgUrl={data[3].backdrop_path}>
+            <BlackBg />
+            <Text>
+              <h3>{data[3].title}</h3>
+              <p>{data[3].overview.slice(0, 120) + "..."}</p>
+            </Text>
+          </SMainBanner>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SMainBanner $BgUrl={data[4].backdrop_path}>
+            <BlackBg />
+            <Text>
+              <h3>{data[4].title}</h3>
+              <p>{data[4].overview.slice(0, 120) + "..."}</p>
             </Text>
           </SMainBanner>
         </SwiperSlide>
