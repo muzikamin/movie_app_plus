@@ -8,6 +8,7 @@ export const colors = {
 
 export const Padding = {
   sidePadding: "120px",
+  MosidePadding: "20px",
 };
 
 export const GlobalStyled = createGlobalStyle`
@@ -20,6 +21,7 @@ body {
   background-color: #161616;
   color: ${colors.color};
   letter-spacing: -1px;
+  word-break : keep-all
 }
 
 a {

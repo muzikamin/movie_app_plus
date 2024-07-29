@@ -17,8 +17,8 @@
 - [x] react-spinners => 로딩
 - [x] styled-components => 스타일 지정
 - [x] styled-reset
-- [] swiper
+- [x] swiper
+- [x] helmet-async
 - [] font-awesome
 - [] react-hook-form
-- [] helmet-async
 - [] react-icons

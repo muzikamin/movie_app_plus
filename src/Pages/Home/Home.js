@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { nowPlaying, popular, topRated, upComing } from "../../api";
 import { Loading } from "../../Components/Loading";
 import styled from "styled-components";
-
-const MainBanner = styled.section`
-  width: 100%;
-`;
+import { imgUrl } from "../../Constant/imgUrl";
+import { Padding } from "../../GlobalStyled";
+import "swiper/css";
+import { MainBanner } from "./Components/MainBanner";
 
 export const Home = () => {
   const [nowData, SetNowDate] = useState();
@@ -38,7 +38,5 @@ export const Home = () => {
   console.log(topData);
   console.log(upData);
 
-  return (
-    <>{isLoading ? <Loading /> : <MainBanner>메인베너입니당</MainBanner>}</>
-  );
+  return <>{isLoading ? <Loading /> : <MainBanner data={popData} />}</>;
 };
