@@ -10,16 +10,16 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 10;
-  font-size: 26px;
+  font-size: 18px;
   padding: 30px ${Padding.sidePadding};
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: "all 1s";
-  background-color: ${(props) => props.$BgColor};
+  background-color: ${(props) => props.$conScroll};
 
   @media screen and (max-width: 1280px) {
-    font-size: 20px;
+    font-size: 16px;
     padding: 15px ${Padding.MosidePadding};
   }
 `;
@@ -56,8 +56,23 @@ const Menu = styled.div`
 `;
 
 export const Header = () => {
+  const [headerFix, setHeaderFix] = useState();
+
+  const scrollHandler = () => {
+    const pageY = window.scrollY;
+    console.log(pageY);
+
+    if (pageY >= 100) {
+      setHeaderFix("rgba(0, 0, 0, 0.68)");
+    } else {
+      setHeaderFix("transparent");
+    }
+  };
+
+  window.addEventListener("scroll", scrollHandler);
+
   return (
-    <Container>
+    <Container $conScroll={headerFix}>
       <Logo>
         <Link to={routes.home}>MINFLIX</Link>
       </Logo>

@@ -5,6 +5,7 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const SwiperStyle = styled.div`
   .swiper {
@@ -40,14 +41,14 @@ const SMainBanner = styled.section`
   }
   p {
     width: 40%;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
     opacity: 0.7;
     font-weight: 200;
 
     @media screen and (max-width: 1280px) {
       width: 60%;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 26px;
     }
 
@@ -97,49 +98,59 @@ export const MainBanner = ({ data }) => {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <SMainBanner $BgUrl={data[0].backdrop_path}>
-            <BlackBg />
-            <Text>
-              <h3>{data[0].title}</h3>
-              <p>{data[0].overview.slice(0, 120) + "..."}</p>
-            </Text>
-          </SMainBanner>
+          <Link to={`detail/${data[0].id}`}>
+            <SMainBanner $BgUrl={data[0].backdrop_path}>
+              <BlackBg />
+              <Text>
+                <h3>{data[0].title}</h3>
+                <p>{data[0].overview.slice(0, 120) + "..."}</p>
+              </Text>
+            </SMainBanner>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <SMainBanner $BgUrl={data[1].backdrop_path}>
-            <BlackBg />
-            <Text>
-              <h3>{data[1].title}</h3>
-              <p>{data[1].overview.slice(0, 120) + "..."}</p>
-            </Text>
-          </SMainBanner>
+          <Link to={`detail/${data[1].id}`}>
+            <SMainBanner $BgUrl={data[1].backdrop_path}>
+              <BlackBg />
+              <Text>
+                <h3>{data[1].title}</h3>
+                <p>{data[1].overview.slice(0, 120) + "..."}</p>
+              </Text>
+            </SMainBanner>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <SMainBanner $BgUrl={data[2].backdrop_path}>
-            <BlackBg />
-            <Text>
-              <h3>{data[2].title}</h3>
-              <p>{data[2].overview.slice(0, 120) + "..."}</p>
-            </Text>
-          </SMainBanner>
+          <Link to={`detail/${data[2].id}`}>
+            <SMainBanner $BgUrl={data[2].backdrop_path}>
+              <BlackBg />
+              <Text>
+                <h3>{data[2].title}</h3>
+                <p>{data[2].overview.slice(0, 120) + "..."}</p>
+              </Text>
+            </SMainBanner>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <SMainBanner $BgUrl={data[3].backdrop_path}>
-            <BlackBg />
-            <Text>
-              <h3>{data[3].title}</h3>
-              <p>{data[3].overview.slice(0, 120) + "..."}</p>
-            </Text>
-          </SMainBanner>
+          <Link to={`detail/${data[3].id}`}>
+            <SMainBanner $BgUrl={data[3].backdrop_path}>
+              <BlackBg />
+              <Text>
+                <h3>{data[3].title}</h3>
+                <p>{data[3].overview.slice(0, 120) + "..."}</p>
+              </Text>
+            </SMainBanner>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <SMainBanner $BgUrl={data[4].backdrop_path}>
-            <BlackBg />
-            <Text>
-              <h3>{data[4].title}</h3>
-              <p>{data[4].overview.slice(0, 120) + "..."}</p>
-            </Text>
-          </SMainBanner>
+          <Link to={`detail/${data[4].id}`}>
+            <SMainBanner $BgUrl={data[4].backdrop_path}>
+              <BlackBg />
+              <Text>
+                <h3>{data[4].title}</h3>
+                <p>{data[4].overview.slice(0, 120) + "..."}</p>
+              </Text>
+            </SMainBanner>
+          </Link>
         </SwiperSlide>
       </Swiper>
     </SwiperStyle>
