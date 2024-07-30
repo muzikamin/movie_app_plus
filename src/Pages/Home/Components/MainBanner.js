@@ -25,17 +25,20 @@ const SMainBanner = styled.section`
     cover;
 
   h3 {
-    font-size: 45px;
+    width: 40%;
+    font-size: 48px;
     font-weight: 900;
     margin-bottom: 20px;
     line-height: 55px;
 
     @media screen and (max-width: 1280px) {
       font-size: 36px;
+      line-height: 42px;
     }
 
     @media screen and (max-width: 680px) {
       font-size: 28px;
+      line-height: 34px;
       margin-bottom: 10px;
     }
   }
@@ -92,7 +95,7 @@ export const MainBanner = ({ data }) => {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}

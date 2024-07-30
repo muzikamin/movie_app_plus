@@ -6,18 +6,15 @@ import { Link } from "react-router-dom";
 import { colors, Padding } from "../../../GlobalStyled";
 
 const Section = styled.div`
-  padding: 60px ${Padding.sidePadding};
-  padding-right: 0;
+  padding: 160px 0 80px ${Padding.sidePadding};
   position: relative;
 
   @media screen and (max-width: 1280px) {
-    padding: 40px ${Padding.MosidePadding};
-    padding-right: 0;
+    padding: 120px 0 60px ${Padding.MosidePadding};
   }
 
   @media screen and (max-width: 1024px) {
-    padding: 20px ${Padding.MosidePadding};
-    padding-right: 0;
+    padding: 60px 0 30px ${Padding.MosidePadding};
   }
 `;
 
@@ -25,20 +22,19 @@ const MovieTitle = styled.h3`
   font-size: 20px;
   line-height: 26px;
   margin-left: 10px;
+  margin-top: 15px;
 
   @media screen and (max-width: 680px) {
     font-size: 16px;
     line-height: 23px;
+    margin-top: 10px;
   }
 `;
 
 const ImgWrap = styled.div`
   width: 100%;
   height: 24vw;
-  margin-bottom: 40px;
-  margin-left: 10px;
   display: flex;
-  padding-left: 10px;
 
   img {
     width: 100%;
@@ -47,12 +43,10 @@ const ImgWrap = styled.div`
   }
 
   @media screen and (max-width: 1280px) {
-    margin-bottom: 20px;
     height: 30vw;
   }
 
   @media screen and (max-width: 860px) {
-    margin-left: 0;
     height: 50vw;
   }
 `;
@@ -60,26 +54,24 @@ const ImgWrap = styled.div`
 const Title = styled.h3`
   font-size: 46px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin: 40px 0;
 
   @media screen and (max-width: 1280px) {
     font-size: 32px;
-    margin-bottom: 30px;
   }
 
   @media screen and (max-width: 680px) {
     font-size: 26px;
-    margin-bottom: 20px;
   }
 `;
 
 const params = {
   slidesPerView: 2.6,
-  spaceBetween: 5,
+  spaceBetween: 15,
   breakpoints: {
     860: {
       slidesPerView: 4.6,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     1280: {
       slidesPerView: 5.6,

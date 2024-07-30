@@ -9,7 +9,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 999;
   font-size: 18px;
   padding: 30px ${Padding.sidePadding};
   display: flex;
@@ -41,11 +41,12 @@ const Logo = styled.div`
 `;
 
 const Menu = styled.div`
-  width: 50%;
+  width: 35%;
   display: flex;
   justify-content: space-between;
 
   @media screen and (max-width: 860px) {
+    width: 50%;
     font-size: 16px;
   }
 
@@ -60,7 +61,7 @@ export const Header = () => {
 
   const scrollHandler = () => {
     const pageY = window.scrollY;
-    console.log(pageY);
+    // console.log(pageY);
 
     if (pageY >= 100) {
       setHeaderFix("rgba(0, 0, 0, 0.68)");

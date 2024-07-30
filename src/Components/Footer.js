@@ -7,7 +7,6 @@ const Container = styled.div`
   text-align: center;
   font-size: 14px;
   border-top: 0.5px solid #e8dae5;
-  margin-top: 100px;
 `;
 
 export const Footer = () => {

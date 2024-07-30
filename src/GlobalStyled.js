@@ -9,6 +9,7 @@ export const colors = {
 export const Padding = {
   sidePadding: "120px",
   MosidePadding: "20px",
+  detailPadding: "300px",
 };
 
 export const GlobalStyled = createGlobalStyle`
