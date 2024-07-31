@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { imgUrl } from "../../../Constant/imgUrl";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colors, Padding } from "../../../GlobalStyled";
+import { Padding } from "../../../GlobalStyled";
 
 const Section = styled.div`
   padding: 160px 0 80px ${Padding.sidePadding};
