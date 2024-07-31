@@ -7,35 +7,38 @@ import { SimilarMovie } from "../../../api";
 import { Loading } from "../../../Components/Loading";
 
 const params = {
-  slidesPerView: 2.6,
+  slidesPerView: 4.6,
   spaceBetween: 15,
   breakpoints: {
     860: {
-      slidesPerView: 4.6,
+      slidesPerView: 5.6,
       spaceBetween: 20,
     },
     1280: {
-      slidesPerView: 5.6,
+      slidesPerView: 6.6,
       spaceBetween: 20,
     },
   },
 };
 
 const SSimilar = styled.div`
+  width: 100%;
   margin-top: 50px;
+  position: relative;
+`;
 
-  h3 {
-    font-size: 18px;
-    margin: 20px 0;
-  }
+const Similarh3 = styled.h3`
+  font-size: 18px;
+  line-height: 26px;
+  margin: 20px 0;
 `;
 
 const ImgWrap = styled.div``;
 
 const MovieTitle = styled.h3`
-  font-size: 16px;
-  line-height: 22px;
-  margin: 15px 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 10px 0;
 `;
 
 export const Similar = ({ Moviedata }) => {
@@ -62,9 +65,9 @@ export const Similar = ({ Moviedata }) => {
         <Loading />
       ) : (
         <SSimilar>
-          <h3>
+          <Similarh3>
             "{Moviedata.title}" 영화가 마음에 드신다면? 이 영화를 추천드려요 :)
-          </h3>
+          </Similarh3>
           <Swiper {...params}>
             {isSimilar.map((data, index) => (
               <SwiperSlide key={data.id} virtualIndex={index}>

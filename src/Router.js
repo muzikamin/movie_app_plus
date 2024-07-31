@@ -1,6 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home/Home";
-import { Recommend } from "./Pages/Recommend/Recommend";
 import { Search } from "./Pages/Search/Search";
 import { PageNotFound } from "./PageNotFound";
 import { routes } from "./routes";
@@ -16,7 +15,6 @@ export const Router = () => {
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.detail} element={<Detail />} />
         <Route path={routes.Search} element={<Search />} />
-        <Route path={routes.recommend} element={<Recommend />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <Footer />

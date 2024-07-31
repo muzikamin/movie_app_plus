@@ -8,6 +8,7 @@ import { colors, Padding } from "../../../GlobalStyled";
 const Section = styled.div`
   padding: 160px 0 80px ${Padding.sidePadding};
   position: relative;
+  overflow: hidden;
 
   .Container {
     overflow: visible;
@@ -107,6 +108,7 @@ export const MoviesRank = ({ title, movieData }) => {
           <SwiperSlide key={data.id} virtualIndex={index}>
             <Link to={`detail/${data.id}`}>
               <Index>{index + 1}</Index>
+
               <ImgWrap>
                 <img
                   src={`${imgUrl.w500Url}${data.poster_path}`}

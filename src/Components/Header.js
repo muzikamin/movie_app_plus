@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import styled from "styled-components";
 import { colors, Padding } from "../GlobalStyled";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const Container = styled.div`
   left: 0;
   z-index: 999;
   font-size: 18px;
-  padding: 30px ${Padding.sidePadding};
+  padding: 20px ${Padding.sidePadding};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,17 +41,17 @@ const Logo = styled.div`
 `;
 
 const Menu = styled.div`
-  width: 35%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
 
   @media screen and (max-width: 860px) {
-    width: 50%;
+    width: 30%;
     font-size: 16px;
   }
 
   @media screen and (max-width: 460px) {
-    width: 60%;
+    width: 40%;
     font-size: 16px;
   }
 `;
@@ -80,9 +80,6 @@ export const Header = () => {
       <Menu>
         <li>
           <Link to={routes.home}>HOME</Link>
-        </li>
-        <li>
-          <Link to={routes.recommend}>추천영화</Link>
         </li>
         <li>
           <Link to={routes.Search}>검색하기</Link>
