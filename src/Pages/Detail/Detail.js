@@ -5,10 +5,9 @@ import { Loading } from "../../Components/Loading";
 import { imgUrl } from "../../Constant/imgUrl";
 import { FaPlay } from "react-icons/fa";
 import { colors, Padding } from "../../GlobalStyled";
-import ReactPlayer from "react-player";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Similar } from "./Components/Similar";
+import { PageScrollTop } from "../../lib/PageScrollTop";
 
 const Wrap = styled.div``;
 
@@ -196,6 +195,7 @@ const Player = styled.div`
 `;
 
 export const Detail = () => {
+  PageScrollTop();
   const { id: movieId } = useParams();
 
   const [detailData, setDetailData] = useState();

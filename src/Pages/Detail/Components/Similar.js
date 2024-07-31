@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { imgUrl } from "../../../Constant/imgUrl";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,11 +44,12 @@ const MovieTitle = styled.h3`
 export const Similar = ({ Moviedata }) => {
   const [isSimilar, setIsSimilar] = useState();
   const [isLoading, SetIsLoading] = useState(true);
+  const { id: movieId } = useParams();
 
   useEffect(() => {
     (async () => {
       try {
-        const { results: MovieSimilar } = await SimilarMovie(533535);
+        const { results: MovieSimilar } = await SimilarMovie(movieId);
         setIsSimilar(MovieSimilar);
         SetIsLoading(false);
       } catch (error) {
@@ -71,7 +72,7 @@ export const Similar = ({ Moviedata }) => {
           <Swiper {...params}>
             {isSimilar.map((data, index) => (
               <SwiperSlide key={data.id} virtualIndex={index}>
-                <Link to={`detail/${data.id}`}>
+                <Link to={`/detail/${data.id}`}>
                   <ImgWrap>
                     <img
                       src={`${imgUrl.w500Url}${data.poster_path}`}

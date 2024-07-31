@@ -43,10 +43,10 @@ const Container = styled.div`
     line-height: 20px;
     font-weight: 200;
     text-align: center;
+    margin-bottom: 30px;
 
     @media screen and (max-width: 680px) {
       font-size: 14px;
-      margin-bottom: 15px;
     }
   }
 `;
@@ -60,7 +60,6 @@ const Icon = styled.div`
 
 const Button = styled.div`
   width: 120px;
-  margin: 30px;
   padding: 15px;
   text-align: center;
   border: 1px solid #fff;
@@ -71,10 +70,6 @@ const Button = styled.div`
   &:hover {
     border: 1px solid ${colors.point};
     background-color: ${colors.point};
-  }
-
-  @media screen and (max-width: 680px) {
-    margin: 20px;
   }
 `;
 
@@ -91,9 +86,10 @@ export const PageNotFound = () => {
         존재하지 않은 주소를 입력하셨거나 요청하신 페이지의 주소가 변경,
         삭제되어 찾을 수 없습니다.
       </p>
-      <Button>
-        <Link to={routes.home}>홈으로</Link>
-      </Button>
+
+      <Link to={routes.home}>
+        <Button>홈으로</Button>
+      </Link>
     </Container>
   );
 };
