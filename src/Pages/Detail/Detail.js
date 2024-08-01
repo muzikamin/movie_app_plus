@@ -8,6 +8,9 @@ import { colors, Padding } from "../../GlobalStyled";
 import { useParams } from "react-router-dom";
 import { Similar } from "./Components/Similar";
 import { PageScrollTop } from "../../lib/PageScrollTop";
+import ReactPlayer from "react-player";
+import { IoClose } from "react-icons/io5";
+import { PageTitle } from "../../Components/PageTItle";
 
 const Wrap = styled.div``;
 
@@ -44,11 +47,11 @@ const Container = styled.div`
 const Bg = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #000;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
 `;
 
 const ImgWrap = styled.div`
@@ -184,14 +187,77 @@ const PlayerBtn = styled.div`
   }
 `;
 
-const Player = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
+const CloseBtn = styled.div`
+  width: 55px;
+  height: 55px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid ${colors.point};
+    background-color: ${colors.point};
+  }
+`;
+
+const PlayerWrap = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+`;
+
+const MovieBg = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+`;
+
+const PlayerAllWrap = styled.div`
+  position: fixed;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  top: 54%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Player = styled.div`
+  width: 960px;
+  height: 540px;
+
+  @media screen and (max-width: 1080px) {
+    width: 720px;
+    height: 405px;
+  }
+
+  @media screen and (max-width: 860px) {
+    width: 640px;
+    height: 360px;
+  }
+
+  @media screen and (max-width: 680px) {
+    width: 480px;
+    height: 270px;
+  }
+
+  @media screen and (max-width: 460px) {
+    width: 320px;
+    height: 180px;
+  }
 `;
 
 export const Detail = () => {
@@ -201,6 +267,7 @@ export const Detail = () => {
   const [detailData, setDetailData] = useState();
   const [isLoading, SetIsLoading] = useState(true);
   const [isMovie, setIsMovie] = useState();
+  const [isView, setIsView] = useState(false);
 
   console.log(movieId);
 
@@ -210,7 +277,7 @@ export const Detail = () => {
         const data = await movieDetail(movieId);
         const { results: MovieRe } = await movieMovie(movieId);
 
-        setIsMovie(MovieRe[0].key);
+        setIsMovie(MovieRe[1].key);
         setDetailData(data);
         SetIsLoading(false);
       } catch (error) {
@@ -220,7 +287,7 @@ export const Detail = () => {
   }, []);
 
   console.log(detailData);
-  // console.log(isSimilar);
+  console.log(isMovie);
 
   return (
     <>
@@ -228,7 +295,7 @@ export const Detail = () => {
         <Loading />
       ) : (
         <Wrap>
-          {" "}
+          <PageTitle title={detailData.title} />
           <Container $BgUrl={detailData.backdrop_path}>
             <Bg />
             <WrapBox>
@@ -259,7 +326,11 @@ export const Detail = () => {
                 <Line />
                 <OverView>{detailData.overview}</OverView>
                 {/* -----------예고편------------------ */}
-                <PlayerBtn>
+                <PlayerBtn
+                  onClick={() => {
+                    setIsView(true);
+                  }}
+                >
                   <FaPlay />
                   &nbsp;&nbsp;&nbsp;예고편
                 </PlayerBtn>
@@ -267,17 +338,32 @@ export const Detail = () => {
             </WrapBox>
             <Similar Moviedata={detailData} />
 
-            {/* <Player>
-            <Bg />
-            <ReactPlayer
-              url={`https://www.youtube.com/embed/${isMovie}`}
-              playing={``}
-              controls={true}
-              muted={true}
-              width={"100%"}
-              height={"100%"}
-            />
-          </Player> */}
+            {isView ? (
+              <PlayerWrap>
+                <MovieBg />
+                <PlayerAllWrap>
+                  <CloseBtn
+                    onClick={() => {
+                      setIsView(false);
+                    }}
+                  >
+                    <IoClose />
+                  </CloseBtn>
+                  <Player>
+                    <ReactPlayer
+                      url={`https://www.youtube.com/embed/${isMovie}`}
+                      playing={``}
+                      controls={true}
+                      muted={true}
+                      width={"100%"}
+                      height={"100%"}
+                    />
+                  </Player>
+                </PlayerAllWrap>
+              </PlayerWrap>
+            ) : (
+              ""
+            )}
           </Container>
         </Wrap>
       )}

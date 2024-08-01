@@ -25,6 +25,7 @@ const SSimilar = styled.div`
   width: 100%;
   margin-top: 50px;
   position: relative;
+  z-index: 10;
 `;
 
 const Similarh3 = styled.h3`
@@ -32,8 +33,6 @@ const Similarh3 = styled.h3`
   line-height: 26px;
   margin: 20px 0;
 `;
-
-const ImgWrap = styled.div``;
 
 const MovieTitle = styled.h3`
   font-size: 14px;
@@ -73,12 +72,10 @@ export const Similar = ({ Moviedata }) => {
             {isSimilar.map((data, index) => (
               <SwiperSlide key={data.id} virtualIndex={index}>
                 <Link to={`/detail/${data.id}`}>
-                  <ImgWrap>
-                    <img
-                      src={`${imgUrl.w500Url}${data.poster_path}`}
-                      alt={data.title}
-                    />
-                  </ImgWrap>
+                  <img
+                    src={`${imgUrl.w500Url}${data.poster_path}`}
+                    alt={data.title}
+                  />
                   <MovieTitle>{data.title}</MovieTitle>
                 </Link>
               </SwiperSlide>

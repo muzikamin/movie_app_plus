@@ -1,6 +1,7 @@
 import { ScaleLoader } from "react-spinners";
 import styled from "styled-components";
 import { colors } from "../GlobalStyled";
+import { PageTitle } from "./PageTItle";
 
 const Container = styled.div`
   width: 100%;

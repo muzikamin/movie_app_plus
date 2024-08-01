@@ -43,8 +43,7 @@ export const SimilarMovie = (movie_id) =>
   );
 
 export const SearchData = (movie_search) => {
-  return fetch(
-    urlBase(`search/movie?query=${movie_search}&language=ko-kr`),
-    options
-  ).then((res) => res.json());
+  return fetch(urlBase(`${movie_search}/videos?language=ko-kr`), options).then(
+    (res) => res.json()
+  );
 };

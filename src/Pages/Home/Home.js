@@ -6,6 +6,7 @@ import "swiper/css";
 import { MainBanner } from "./Components/MainBanner";
 import { Movies } from "./Components/Movies";
 import { MoviesRank } from "./Components/MoviesRank";
+import { PageTitle } from "../../Components/PageTItle";
 
 const Container = styled.div`
   width: 100%;
@@ -48,6 +49,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <Container>
+          <PageTitle title={"HOME"} />
           <MainBanner data={popData} />
 
           <MoviesRank title="오늘의 TOP시리즈" movieData={popData} />

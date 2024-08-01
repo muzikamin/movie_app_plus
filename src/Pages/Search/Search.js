@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Loading } from "../../Components/Loading";
 import { imgUrl } from "../../Constant/imgUrl";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../Components/PageTItle";
 
 const Container = styled.div`
   width: 100%;
@@ -133,6 +134,7 @@ export const Search = () => {
 
   return (
     <Container>
+      <PageTitle title={"Search"} />
       <Form onSubmit={handleSubmit(onSearchResult)}>
         <input
           {...register("keyword", {

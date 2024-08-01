@@ -5,9 +5,9 @@
 - [x] Api 설정
 - [x] Header, Footer 컴포넌트 구성
 - [x] Loading 컴포넌트 구성
-- [] 각 페이지 UI 구성과 반응형
+- [x] 각 페이지 UI 구성과 반응형
 - [] Helmet
-- [] Header scroll Event
+- [x] Header scroll Event
 - [] Deploy
 
 ## 설치 항목
@@ -19,6 +19,6 @@
 - [x] styled-reset
 - [x] swiper
 - [x] helmet-async
-- [] font-awesome
-- [] react-hook-form
-- [] react-icons
+- [x] font-awesome
+- [x] react-hook-form
+- [x] react-icons
