@@ -140,6 +140,12 @@ const Keyword = styled.ul`
     margin-right: 15px;
     cursor: pointer;
 
+    &:hover {
+      border: 1px solid ${colors.point};
+      background-color: ${colors.point};
+      transition: 0.3s;
+    }
+
     @media screen and (max-width: 1080px) {
       font-size: 16px;
     }
@@ -184,6 +190,7 @@ const PlayerBtn = styled.div`
   &:hover {
     border: 1px solid ${colors.point};
     background-color: ${colors.point};
+    transition: 0.3s;
   }
 `;
 
@@ -352,7 +359,7 @@ export const Detail = () => {
                   <Player>
                     <ReactPlayer
                       url={`https://www.youtube.com/embed/${isMovie}`}
-                      playing={``}
+                      playing={true}
                       controls={true}
                       muted={true}
                       width={"100%"}
