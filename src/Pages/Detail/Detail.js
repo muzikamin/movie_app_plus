@@ -282,7 +282,7 @@ export const Detail = () => {
         const data = await movieDetail(movieId);
         const { results: MovieRe } = await movieMovie(movieId);
 
-        setIsMovie(MovieRe[1].key);
+        setIsMovie(MovieRe[1]?.key);
         setDetailData(data);
         SetIsLoading(false);
       } catch (error) {
