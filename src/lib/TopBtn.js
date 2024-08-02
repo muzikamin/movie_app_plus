@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { colors } from "../GlobalStyled";
 
 const STopBtn = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   /* background-color: aliceblue; */
   position: fixed;
   bottom: 30px;
