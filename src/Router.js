@@ -6,6 +6,7 @@ import { routes } from "./routes";
 import { Detail } from "./Pages/Detail/Detail";
 import { Header } from "./Components/Header";
 import { Footer } from "./Components/Footer";
+import { TopBtn } from "./lib/TopBtn";
 
 export const Router = () => {
   return (
@@ -17,6 +18,7 @@ export const Router = () => {
         <Route path={routes.Search} element={<Search />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
+      <TopBtn />
       <Footer />
     </HashRouter>
   );

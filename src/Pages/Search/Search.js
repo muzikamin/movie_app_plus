@@ -163,7 +163,10 @@ export const Search = () => {
                       <Con key={data.id}>
                         {data.poster_path ? (
                           <Link to={`/detail/${data.id}`}>
-                            <img src={`${imgUrl.w500Url}${data.poster_path}`} />
+                            <img
+                              src={`${imgUrl.w500Url}${data.poster_path}`}
+                              alt={data.title}
+                            />
                             <p>{data.title}</p>
                           </Link>
                         ) : (

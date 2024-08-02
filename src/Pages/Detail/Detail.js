@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { movieDetail, movieMovie, SimilarMovie } from "../../api";
 import styled from "styled-components";
 import { Loading } from "../../Components/Loading";
