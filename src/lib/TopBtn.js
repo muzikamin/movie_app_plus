@@ -23,6 +23,22 @@ const STopBtn = styled.div`
     border: 1px solid ${colors.point};
     background-color: ${colors.point};
   }
+
+  @media screen and (max-width: 1280px) {
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 860px) {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 18px;
+  }
 `;
 
 export const TopBtn = () => {
