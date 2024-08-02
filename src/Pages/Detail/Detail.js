@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { movieDetail, movieMovie, SimilarMovie } from "../../api";
+import { movieDetail, movieMovie } from "../../api";
 import styled from "styled-components";
 import { Loading } from "../../Components/Loading";
 import { imgUrl } from "../../Constant/imgUrl";
@@ -11,8 +11,6 @@ import { PageScrollTop } from "../../lib/PageScrollTop";
 import ReactPlayer from "react-player";
 import { IoClose } from "react-icons/io5";
 import { PageTitle } from "../../Components/PageTItle";
-
-const Wrap = styled.div``;
 
 const WrapBox = styled.div`
   width: 100%;
@@ -291,7 +289,7 @@ export const Detail = () => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [movieId]);
 
   console.log(detailData);
   console.log(isMovie);
@@ -301,7 +299,7 @@ export const Detail = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Wrap>
+        <>
           <PageTitle title={detailData.title} />
           <Container $BgUrl={detailData.backdrop_path}>
             <Bg />
@@ -372,7 +370,7 @@ export const Detail = () => {
               ""
             )}
           </Container>
-        </Wrap>
+        </>
       )}
     </>
   );
